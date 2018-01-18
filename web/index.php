@@ -1,4 +1,4 @@
-                                    <?php 
+ <?php 
 session_start();
 include('connection.php');
 if (isset($_POST['submit'])) {
@@ -53,6 +53,8 @@ alert('Failed');
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+     <!-- Custom CSS -->
+     <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -124,13 +126,13 @@ alert('Failed');
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       <style>
-		.page-wrapper {
-			margin-left: 0px !important;
-			background-color: #e8e8e8;
-			}
-	   
-	   </style>
+        <style>
+        .page-wrapper {
+            margin-left: 0px !important;
+            background: url(preview_image/aa.png);
+            }
+       
+       </style>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -153,47 +155,69 @@ alert('Failed');
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                   
-                    <!-- Column -->
-                    <!-- Column -->
-                  <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card">
-						 
-                            <div class="card-body">
-							
-                                <form method="post" class="form-horizontal form-material">
-                                   
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
-                                        <div class="col-md-12">
-                                            <input name="email" type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email" required="required">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input name="password" type="password" value="password" class="form-control form-control-line" required="required">
-                                        </div>
-                                    </div>
+                <center>
+                <div class="clearfix"></div>
+                    
+                    <div class="row">
+                        <!-- Column -->
+                    
+                        <!-- Column -->
+                        <!-- Column -->
+                    <!-- <div class="col-lg-8 col-xlg-9 col-md-7"> -->
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10 col-sm-6">
+                            <div class="card" style="width:50%;">
+                            
+                            <div style="padding: 30px;">
+                                <a class="navbar-brand" href="index.html">
+                                    <!-- Logo icon --><b>
+                                        <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                    </b>
+                                    <!--End Logo icon -->
+                                    <!-- Logo text -->
+                                    <span>
+                                        <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                    </span>
+                                </a>
+                            </div>
+
+                                <div class="card-body">
+                                
+                                    <form method="post" class="form-horizontal form-material">
                                     
-                                    
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button name="submit" class="btn btn-success">Login</button>
+                                        <div class="form-group">
+                                            <label for="example-email" class="col-md-12 text-left">Email</label>
+                                            <div class="col-md-12">
+                                                <input name="email" type="email" class="form-control form-control-line" name="example-email" id="example-email" required="required">
+                                            </div>
                                         </div>
-										 <br>
-											<a href="registration.php" class="btn waves-effect waves-light btn-info hidden-md-down"> Registration</a>
-										
-                                    </div>
-                                </form>
+                                        <div class="form-group">
+                                            <label class="col-md-12 text-left">Password</label>
+                                            <div class="col-md-12">
+                                                <input name="password" type="password" class="form-control form-control-line" required="required">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button name="submit" class="btn btn-custom btn-flat btn-md">Sign In</button>
+                                            </div>
+                                            <div class="col-sm-12">
+                                            <br>
+                                                <a href="registration.php" > Don't have Account? Register here.</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             </div>
                         </div>
-						</div>
+                        <!-- Column -->
+                        <div class="col-sm-1"></div>
                     </div>
-                    <!-- Column -->
-                </div>
+                </center>
+               
                 <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

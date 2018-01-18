@@ -1,4 +1,4 @@
-<?php 
+<!--?php 
 session_start();
 include('connection.php');
 if (isset($_POST['submit'])) {
@@ -34,7 +34,7 @@ alert('Email Already Exist');
 }
 
 ?>
-
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +55,8 @@ alert('Email Already Exist');
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -133,13 +135,13 @@ alert('Email Already Exist');
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-		 <style>
-		.page-wrapper {
-			margin-left: 0px !important;
-			background-color: #e8e8e8;
-			}
-	   
-	   </style>
+		  <style>
+        .page-wrapper {
+            margin-left: 0px !important;
+            background: url(preview_image/aa.png);
+            }
+       
+       </style>
 	   
         <div class="page-wrapper">
             <!-- ============================================================== -->
@@ -163,50 +165,67 @@ alert('Email Already Exist');
                    
                     <!-- Column -->
                     <!-- Column -->
-                    
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
 					
+                        
                         <div class="card" style="width:50%;"> 
                             
+                            <div style="padding: 30px;">
+                            <a class="navbar-brand" href="index.html">
+                                <!-- Logo icon --><b>
+                                    <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                </b>
+                                <!--End Logo icon -->
+                                <!-- Logo text -->
+                                <span>
+                                    <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                </span>
+                            </a>
+                        </div>
 							<div class="card-body">
 							
                                 <form method="post" class="form-horizontal form-material">
                                   <div class="form-group">
-                                        <label for="example-email" class="col-md-12">First Name</label>
+                                        <label for="example-email" class="col-md-12 text-left">First Name</label>
                                         <div class="col-md-12">
-                                            <input name="fname" type="name" placeholder="John" class="form-control form-control-line" name="example-email" id="example-email" required="required" required="required">
+                                            <input name="fname" type="name"  class="form-control form-control-line" name="example-email" id="example-email" required="required" required="required">
                                         </div>
                                     </div>
                                      <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Last Name</label>
+                                        <label for="example-email" class="col-md-12 text-left">Last Name</label>
                                         <div class="col-md-12">
-                                            <input name="lname" type="name" placeholder="khan" class="form-control form-control-line" name="example-email" id="example-email" required="required" required="required">
+                                            <input name="lname" type="name"  class="form-control form-control-line" name="example-email" id="example-email" required="required" required="required">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <label for="example-email" class="col-md-12 text-left">Email</label>
                                         <div class="col-md-12">
-                                            <input name="email" type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email" required="required">
+                                            <input name="email" type="email" class="form-control form-control-line" name="example-email" id="example-email" required="required">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Password</label>
+                                        <label class="col-md-12 text-left">Password</label>
                                         <div class="col-md-12">
-                                            <input name="password" type="password" value="password" class="form-control form-control-line" required="required">
+                                            <input name="password" type="password"  class="form-control form-control-line" required="required">
                                         </div>
                                     </div>
                                     
                                     
                                     <div class="form-group">
+                                        <div class="col-sm-12 text-center">
+                                            <button name="submit" class="btn btn-custom btn-flat btn-md">Sign Up</button>
+                                        </div>
+                                        <br/>
                                         <div class="col-sm-12">
-                                            <button name="submit" class="btn btn-success">Registered</button>
-											<br> <br>
-											<a href="index.php"  class="btn waves-effect waves-light btn-info hidden-md-down"> Login</a>
+                                        <a href="index.php"  class="">Already have Account? Login here.</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-						
+						</div>
+                    <div class="col-sm-1"></div>
                     
 					
                     <!-- Column -->

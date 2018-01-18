@@ -1,5 +1,18 @@
+<?php 
+$design_id = $_GET['id'];
 
-<!DOCTYPE html>
+
+if ($design_id != "1" && $design_id != "2" && $design_id != "3")
+{
+echo "<script>
+alert('Invalid Design ID');
+window.location.href='new_magazine.php';
+</script>";
+}
+
+
+?>
+
 <html lang="en">
 
 <head>
@@ -17,12 +30,18 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+      <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -51,11 +70,11 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-      <style>
-	  .page-wrapper {
-			margin-left: 0px !important;
-			background-color: #e8e8e8;
-			}
+       <style>
+	    .page-wrapper {
+            margin-left: 0px !important;
+            background: url(preview_image/darkPreview.jpg);
+            }
 		</style>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -78,101 +97,111 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+               
+
+                     <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    Magazine Step 2
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <div class="row">
+                        <h2 style="margin-left: 20px"> You choosen design id : <?php echo $design_id; ?> </h2>                          
+                      </div>
+
+            <center>
+                <div class="row" style="margin-left: 20px">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                       <div class="card card-box">
+                            <div class="card-body">
+                                <h3>Add New Page Step 2</h3>
+                            </div>
+                            <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" action="preview2.php" >
+                            <label>Page Name</label><br>
+                            <input class="input-css" type="text" name="magazine_name" required="required">
+                            <br><br>
+                            <span style="margin-left: 30px">
+                            <label> Enter Text To Display</label><br>
+                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
+                           
+                           </span>
+                           <br>
+                            <span style="margin-left: 30px">
+                            <!-- <label> Select Image</label><br> -->
+                            <!-- <div class="fileUpload btn btn-custom btn-flat btn-sm">
+                                <span>Upload Image</span>
+                                <input type="file" class=" upload" name="cover_page" required="required" accept="image/x-png,image/jpeg" />
+                            </div> -->
+                            <input type="file" class="btn btn- btn-sm" name="cover_page" required="required" accept="image/x-png,image/jpeg">
+                           </span><br><br>
+                           <input type="hidden" class="btn btn-primary btn-sm" name="design_id" value="<?php echo $design_id; ?>">
+                            <input type="submit" class="btn btn-custom btn-flat btn-md " name="submit1" value="Preview">
+                        <div class="clearfix"></div>
+                        </div>
+
+                         </form>
+
+                    </div>
+                </div>
+
+<!-- 
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                New Magazine Wizard
+                                Magazine Step 2
 
                             </div>
                         </div>
                     </div>
                 </div>
-
+<center>
 <div class="row">
                     
                                <h2 style="margin-left: 
-                               20px"> Please Choose The Magazine Cover Page
+                               20px"> You choosen design id : <?php echo $design_id; ?>
 </h2>
                            
                 </div>
 
-                 <div class="row">
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body" style="size: 100px">
-                                Design 1
-
-                                <div>
-                                
-                                <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-
-                                    </div>
- <br>
-<a href="new_magazine2.php?id=1" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
-                            </div>
+                 <div class="row" style="margin-left: 
+                               20px">
+                                <div class="col-7">
                       
+                       <div class="card">
+                            <div class="card-body">
+                               Add New Page Step 2
+
+                            </div>
+                            <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" action="preview2.php" >
+                            <label>Page Name</label><br>
+                            <input type="text" name="magazine_name" required="required">
+                            <br><br>
+                            <span style="margin-left: 30px">
+                            <label> Enter Text To Display</label><br>
+                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
+                           
+                           </span>
+                           <br>
+                            <span style="margin-left: 30px">
+                            <label> Select Image</label><br>
+                            <input type="file" name="cover_page" required="required" accept="image/x-png,image/jpeg">
+                           </span><br><br>
+                           <input type="hidden" name="design_id" value="<?php echo $design_id; ?>">
+<input class="btn btn-primary btn-sm" type="submit" name="submit1" value="Preview">
 
                         </div>
-                    </div>
-                <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                Design 2
 
-                                <div>
-                                
-                                    <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    </div>
-                                    <br>
-<a href="new_magazine2.php?id=2" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
-                        
-                            </div>
-                             </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                Design 3
+                         </form>
 
-                                <div>
-                                
-                                <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
-                                    </span>
-                                    <br>
-                                    <br>
-                                   
-                                    </div>
- <a href="new_magazine2.php?id=3" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
-                            </div>
                         </div>
-                    </div>  
-                </div>
+                </div> -->
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

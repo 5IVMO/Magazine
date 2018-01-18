@@ -38,7 +38,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="logout.php"> Logout</a>
+                            <a class="nav-link waves-effect waves-dark " href="logout.php"> Logout</a>
                         </li>
                     </ul>
                 </div>

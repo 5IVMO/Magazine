@@ -1,18 +1,42 @@
 <?php 
-$design_id = $_GET['id'];
+session_start();
+include('connection.php');
+if (isset($_POST['submit'])) {
+	
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+	$query="Select * from admin where email = '$email' AND password = '$password' ";
 
+  $query = mysqli_query($conn,$query);
 
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
-{
+  if (mysqli_num_rows($query) > 0)
+
+  {
+
+  	$res = mysqli_fetch_object($query);
+$_SESSION['id2'] = $res->id;
 echo "<script>
-alert('Invalid Design ID');
-window.location.href='new_magazine.php';
+alert('Success');
+window.location.href='admin_dashboard.php';
 </script>";
-}
 
+  }
+
+  else 
+
+  {
+echo "<script>
+alert('Failed');
+</script>";
+
+  }
+
+}
 
 ?>
 
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,23 +48,21 @@ window.location.href='new_magazine.php';
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+   
     <!-- Bootstrap Core CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-//<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-  //]]>
-  </script>
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -50,7 +72,7 @@ window.location.href='new_magazine.php';
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Loading</p>
+            <p class="loader__label">Admin Pro</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -60,9 +82,46 @@ window.location.href='new_magazine.php';
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-      <?php
-      include('header.php');
-      ?>
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                       
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -70,11 +129,12 @@ window.location.href='new_magazine.php';
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
        <style>
-	  .page-wrapper {
-			margin-left: 0px !important;
-			background-color: #e8e8e8;
-			}
-		</style>
+        .page-wrapper {
+            margin-left: 0px !important;
+            background: url(preview_image/aa.png);
+            }
+       
+       </style>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -96,58 +156,59 @@ window.location.href='new_magazine.php';
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!-- Row -->
+                <center>
+                <div class="clearfix"></div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
+                    <!-- Column -->
+                   
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-10 col-sm-6">
+                        <div class="card" style="width:50%;">
+                        <div style="padding: 30px;">
+                                <a class="navbar-brand" href="index.html">
+                                    <!-- Logo icon --><b>
+                                        <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                    </b>
+                                    <!--End Logo icon -->
+                                    <!-- Logo text -->
+                                    <span>
+                                        <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                    </span>
+                                </a>
+                            </div>
                             <div class="card-body">
-                                Magazine Step 2
-
+                                <form method="post" class="form-horizontal form-material">
+                                   
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12 text-left">Email</label>
+                                        <div class="col-md-12">
+                                            <input name="email" type="email" class="form-control form-control-line" name="example-email" id="example-email" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 text-left">Password</label>
+                                        <div class="col-md-12">
+                                            <input name="password" type="password"  class="form-control form-control-line" required="required">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button name="submit" class="btn btn-custom btn-flat btn-md">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
-<center>
-<div class="row">
-                    
-                               <h2 style="margin-left: 
-                               20px"> You choosen design id : <?php echo $design_id; ?>
-</h2>
-                           
-                </div>
-
-                 <div class="row" style="margin-left: 
-                               20px">
-                                <div class="col-7">
-                      
-                       <div class="card">
-                            <div class="card-body">
-                               Add New Page Step 2
-
-                            </div>
-                            <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" action="preview2.php" >
-                            <label>Page Name</label><br>
-                            <input type="text" name="magazine_name" required="required">
-                            <br><br>
-                            <span style="margin-left: 30px">
-                            <label> Enter Text To Display</label><br>
-                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
-                           
-                           </span>
-                           <br>
-                            <span style="margin-left: 30px">
-                            <label> Select Image</label><br>
-                            <input type="file" name="cover_page" required="required" accept="image/x-png,image/jpeg">
-                           </span><br><br>
-                           <input type="hidden" name="design_id" value="<?php echo $design_id; ?>">
-<input class="btn btn-primary btn-sm" type="submit" name="submit1" value="Preview">
-
-                        </div>
-
-                         </form>
-
-                        </div>
-                </div>
-
+                </center>
+                <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -158,8 +219,7 @@ window.location.href='new_magazine.php';
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-           <?php 
-           include('footer.php');?>
+            <?php include 'footer.php' ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

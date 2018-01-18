@@ -1,3 +1,3 @@
  <footer class="footer">
-                © 2017 Magazine Web
+                © 2018 Magazine Web
             </footer>

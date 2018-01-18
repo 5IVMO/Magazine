@@ -1,0 +1,143 @@
+
+/* Global CSS */
+.btn-flat{
+    border-radius: 0;
+}
+.btn-custom{
+    color: #fff;
+    background: #1bb1b2;
+    border: 1px solid #1bb1b2;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
+    -webkit-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+}
+.btn-custom:hover, .btn-custom.disabled:hover{
+    color: #fff;
+    background: #208a8a;
+    -webkit-box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+    box-shadow: 0 14px 26px -12px rgba(40, 190, 189, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(40, 190, 189, 0.2);
+    border: 1px solid #208a8a;
+}
+
+.clearfix{
+    margin-bottom: 20px;
+}
+
+
+.card-box{
+    box-shadow: 5px 5px #b0b0b0, 10px 10px #797979, 15px 15px #525452 !important;
+    opacity: 0.7 !important;
+}
+.card-box:hover, .card-box:focus, .card-box:visited{
+    margin-top: -20px;
+    opacity: 1!important;
+}
+
+.magazine-description{
+    font-size: 14px;
+    padding: 15px;
+}
+
+/* Registraion Page */
+
+.page-wrapper {
+    margin-left: 0px !important;
+    background: url(../preview_image/5a2cf1b9136e1hacker-1.jpg);
+    background-size: cover;
+}
+
+.card{
+    opacity: 0.9;
+    transition: .3s;
+}
+
+.card:hover, .card:focus, .card:visited{
+    opacity: 1;
+}
+
+
+
+/* Input CSS */
+.input-css {
+    padding: 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* 
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+} */
+       
+
+
+
+/*Side Scroll bar Start*/
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px #333;*/
+    /*-webkit-border-radius: 10px;*/
+    background-color: #fff;
+    border-radius: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 0;
+    background: #061a21;
+    /*-webkit-box-shadow: inset 0 0 6px #79b32a;*/
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #061a21;
+}
+
+
+/*Side Scroll bar End*/
+
+
+
+
+/* Responsive */
+
+/*For Mobile 330 to 767*/
+@media (min-width: 360px) and (max-width: 767px) {
+
+    .card{
+        width: 100% !important;
+    }
+
+}
+
+/*For Mobile 412 to 767*/
+@media (min-width: 412px) and (max-width: 767px) {
+
+    .card{
+        width: 100% !important;
+    }
+
+}

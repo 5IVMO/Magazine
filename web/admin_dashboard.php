@@ -1,17 +1,4 @@
-<?php 
-$design_id = $_GET['id'];
-
-
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
-{
-echo "<script>
-alert('Invalid Design ID');
-window.location.href='new_magazine.php';
-</script>";
-}
-
-
-?>
+<?php include('connection.php');include('session2.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,23 +11,21 @@ window.location.href='new_magazine.php';
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+   
     <!-- Bootstrap Core CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-//<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-  //]]>
-  </script>
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -50,7 +35,7 @@ window.location.href='new_magazine.php';
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Loading</p>
+            <p class="loader__label">Magazine</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -60,8 +45,8 @@ window.location.href='new_magazine.php';
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-      <?php
-      include('header.php');
+         <?php
+      include('header2.php');
       ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
@@ -69,12 +54,20 @@ window.location.href='new_magazine.php';
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+
        <style>
-	  .page-wrapper {
-			margin-left: 0px !important;
-			background-color: #e8e8e8;
-			}
-		</style>
+        .page-wrapper {
+            margin-left: 0px !important;
+            background: url(preview_image/darkPreview.jpg);
+            }
+            .card-box{
+                opacity: 1!important;
+            }
+        .card-box:hover, .card-box:focus, .card-box:visited{
+            margin-top: 0px !important;
+            opacity: 1!important;
+            }
+       </style>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -89,7 +82,21 @@ window.location.href='new_magazine.php';
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                
+                <!-- <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Magazine Requests</h3>
+                    </div>
+                    
+                </div> -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                Magazine Requests
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -97,59 +104,46 @@ window.location.href='new_magazine.php';
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-12">
+                    <!-- column -->
+                    <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-body">
-                                Magazine Step 2
+                            <div class="card-body card-box">
+                                <h4 class="card-title">New Requests</h4>
+                               
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Magazine ID</th>
+                                                <th>Magazine Name</th>
+                                                <th>Accept</th>
+                                                <th>Reject</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        <?php
+                                        $query="Select * from magazine where status  = 0";
+
+  $query = mysqli_query($conn,$query);
+  while ($res = mysqli_fetch_object($query)) {
+      
+
+                                         ?>
+                                            <tr>
+                                                <td><?php echo $res->id ; ?></td>
+                                                <td><?php echo $res->name ; ?></td>
+                                                <td><a href="accept_reject.php?id=<?php echo $res->id;?>&&status=1" class="btn waves-effect waves-light btn-info hidden-md-down"> Accept</a></td>
+                                                <td><a href="accept_reject.php?id=<?php echo $res->id;?>&&status=2" class="btn waves-effect waves-light btn-info hidden-md-down"> Reject</a></td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<center>
-<div class="row">
-                    
-                               <h2 style="margin-left: 
-                               20px"> You choosen design id : <?php echo $design_id; ?>
-</h2>
-                           
-                </div>
-
-                 <div class="row" style="margin-left: 
-                               20px">
-                                <div class="col-7">
-                      
-                       <div class="card">
-                            <div class="card-body">
-                                Magazine Step 2
-
-                            </div>
-                            <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" action="preview1.php" >
-                            <label>Magazine Name</label><br>
-                            <input type="text" name="magazine_name" required="required">
-                            <br><br>
-                            <span style="margin-left: 30px">
-                            <label> Enter Text To Display</label><br>
-                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
-                           
-                           </span>
-                           <br>
-                            <span style="margin-left: 30px">
-                            <label> Select Image</label><br>
-                            <input type="file" class="btn btn- btn-sm" name="cover_page" required="required" accept="image/x-png,image/jpeg">
-                           </span><br><br>
-                           <input type="hidden" class="btn btn-primary btn-sm" name="design_id" value="<?php echo $design_id; ?>">
-							<input type="submit" class="btn btn-primary btn-sm" name="submit1" value="Preview">
-							<br>
-							<br>
-							
-                        </div>
-
-                         </form>
-
-                        </div>
-                </div>
-
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -160,8 +154,7 @@ window.location.href='new_magazine.php';
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-           <?php 
-           include('footer.php');?>
+            <?php include 'footer.php'; ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

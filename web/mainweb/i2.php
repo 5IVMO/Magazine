@@ -1,9 +1,9 @@
-<?php 
+<!--?php 
 include 'connection.php';
 if (isset($_GET['magazine_id'])){
     $magazine_id = $_GET['magazine_id'];
 
-?>
+?-->
 <!DOCTYPE html>
 <html>
 <head lang="en">

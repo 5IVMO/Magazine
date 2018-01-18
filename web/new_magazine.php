@@ -1,40 +1,3 @@
-<?php 
-session_start();
-include('connection.php');
-if (isset($_POST['submit'])) {
-	
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$query="Select * from admin where email = '$email' AND password = '$password' ";
-
-  $query = mysqli_query($conn,$query);
-
-  if (mysqli_num_rows($query) > 0)
-
-  {
-
-  	$res = mysqli_fetch_object($query);
-$_SESSION['id2'] = $res->id;
-echo "<script>
-alert('Success');
-window.location.href='admin_dashboard.php';
-</script>";
-
-  }
-
-  else 
-
-  {
-echo "<script>
-alert('Failed');
-</script>";
-
-  }
-
-}
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,13 +11,14 @@ alert('Failed');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-   
     <!-- Bootstrap Core CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+     <!-- Custom CSS -->
+     <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,7 +34,7 @@ alert('Failed');
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Pro</p>
+            <p class="loader__label">Loading</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -80,59 +44,23 @@ alert('Failed');
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span>
-                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                        </span>
-                    </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                       
-                    </ul>
-                </div>
-            </nav>
-        </header>
+      <?php
+      include('header.php');
+      ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       <style>
-        .page-wrapper {
-            margin-left: 0px !important;
-            background-color: #e8e8e8;
-            }
-       
-       </style>
+     <!--  <style>
+	  .page-wrapper_new {
+			margin-left: 0px !important;
+            background: url(../preview_image/5a2cf1b9136e1hacker-1.jpg);
+             background-size: cover;
+			}
+
+		</style> -->
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -154,43 +82,86 @@ alert('Failed');
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <!-- Row -->
+               
                 <div class="row">
-                    <!-- Column -->
-                   
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" class="form-horizontal form-material">
-                                   
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
-                                        <div class="col-md-12">
-                                            <input name="email" type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email" required="required">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input name="password" type="password" value="password" class="form-control form-control-line" required="required">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button name="submit" class="btn btn-success">Login</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                <p>Please Choose The Magazine Cover Page</p>
+                               
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
                 </div>
-                <!-- Row -->
+
+                <!-- <div class="row">
+                    
+                               <h2 style="margin-left: 
+                               20px"> 
+                </h2>
+                           
+                </div> -->
+
+                <div class="clearfix" style="margin-bottom: 30px;"></div>
+                 <div class="row">
+                    <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 1</h3>
+                                <hr/>
+                                <div>
+                                    <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-3.jpg" width="100%">
+                                    </span>
+                                    <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p>
+                                     <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-3.jpg" width="100%">
+                                    </span>
+                                </div>
+                                <br>
+                                <a href="new_magazine2.php?id=1" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 2</h3>
+                                <hr/>
+                                <div>
+                                      <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p
+
+                                    <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-1.jpg" width="100%">
+                                    </span>
+                                </div>
+                                 <br>
+                                <a href="new_magazine2.php?id=2" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 3</h3>
+                                <hr/>
+                                <div>
+                                    <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-5.jpg" width="100%">
+                                    </span>
+                                    <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p>
+                                </div>
+                                <a href="new_magazine2.php?id=3" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                            </div>
+                        </div>
+                    </div>
+                  
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -201,7 +172,8 @@ alert('Failed');
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <?php include 'footer.php' ?>
+           <?php 
+           include('footer.php');?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

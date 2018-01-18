@@ -1,8 +1,8 @@
-<?php 
+<!--?php 
 
 include 'session.php';
 
-?>
+?-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +21,8 @@ include 'session.php';
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,97 +88,76 @@ include 'session.php';
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                               Add New Page
-
+                             Add New Page
                             </div>
                         </div>
                     </div>
                 </div>
 
-<div class="row">
-                    
-                               <h2 style="margin-left: 
-                               20px"> Please Choose Page Template
-</h2>
-                           
+                <div class="row">                  
+               <h2 style="margin-left:20px"> Please Choose Page Template</h2>
                 </div>
 
+                 <div class="clearfix" style="margin-bottom: 30px;"></div>
                  <div class="row">
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card card-box">
                             <div class="card-body" style="size: 100px">
-                                Design 1
-
+                                <h3>Design 1</h3>
+                                <hr/>
                                 <div>
-                                
-                                <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    <br>
-                                    <br>
                                     <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
+                                        <img src="mainweb/images/gallery-images/gallery-image-3.jpg" width="100%">
                                     </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
+                                    <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p>
+                                     <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-3.jpg" width="100%">
                                     </span>
-
-                                    </div>
- <br>
-<a href="magazine_page2.php?id=1" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
+                                </div>
+                                <br>
+                                <a href="magazine_page2.php?id=1" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
                             </div>
-                      
-
                         </div>
                     </div>
                 <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                Design 2
-
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 2</h3>
+                                <hr/>
                                 <div>
-                                
-                                    <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
-                                    </span>
-                                    <br>
-                                    <br>
-                                    <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    </div>
-                                    <br>
-<a href="magazine_page2.php?id=2" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
-                        
-                            </div>
-                             </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                Design 3
+                                      <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p
 
-                                <div>
-                                
-                                <span>
-                                    <img src="img/bird.jpg" width="100%" height="110px">
-                                    </span>
-                                    <br>
-                                    <br>
                                     <span>
-                                   Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..  Loren Ipsum
+                                        <img src="mainweb/images/gallery-images/gallery-image-1.jpg" width="100%">
                                     </span>
-                                    <br>
-                                    <br>
-                                   
-                                    </div>
- <a href="magazine_page2.php?id=3" class="btn waves-effect waves-light btn-info hidden-md-down"> Choose </a>
+                                </div>
+                                 <br>
+                                <a href="magazine_page2.php?id=2" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
                             </div>
                         </div>
-                    </div>  
-                </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 3</h3>
+                                <hr/>
+                                <div>
+                                    <span>
+                                        <img src="mainweb/images/gallery-images/gallery-image-5.jpg" width="100%">
+                                    </span>
+                                    <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
+                                    </p>
+                                </div>
+                                <a href="magazine_page2.php?id=3" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                            </div>
+                        </div>
+                    </div>
+                  
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
