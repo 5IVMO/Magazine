@@ -121,7 +121,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
                             <div class="card-body" style="size: 100px">
                               <?php echo $magazine_name; ?>
 
@@ -138,7 +138,7 @@ $magazine_name = $_POST['magazine_name'];
                                     <br>
                                     <br>
                                     <span>
-                                    <img src="<?php echo $target_file ?>"  width="100%" height="110px">
+                                    <img src="<?php echo $image2 ?>"  width="100%" height="110px">
                                     </span>
 
                                     </div>
@@ -156,7 +156,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                      <div class="col-4">
-                        <div class="card">
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
                             <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
@@ -186,7 +186,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                             <div class="col-4">
-                        <div class="card">
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
                             <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
