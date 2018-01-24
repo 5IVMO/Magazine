@@ -213,7 +213,7 @@ $magazine_name = $_POST['magazine_name'];
     $url2 ="submit_magazine_page2.php?title=".$magazine_name."&&maintext=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image;
     if($image2 !== null){
         $url1 .="&&image2=".$image2;
-        $url12 .="&&image2=".$image2;
+        $url2 .="&&image2=".$image2;
     }
 
 
