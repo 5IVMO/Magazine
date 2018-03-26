@@ -129,11 +129,11 @@ while ($res = mysqli_fetch_object($query)){
 ?>
                 <!--Pricing Block-->
                 <div class="pricing-block col-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="pricing-block-content" style='background-image: url(<?php echo "../$res->background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                    <div class="pricing-block-content" style='background-image: url(<?php echo "../$res->background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:400px'>
                         <h3><?php echo $res->name; ?></h3>
                         
                         <?php if ($res->design_id == 3 || $res->design_id == 1){ ?><img src="../<?php echo $res->img;?>" width="100%" style="height: 130px"><?php } ?><br>
-                        <div style="height: 100px; width:45%; word-wrap:break-word; <?php if ($res->design_id == 2 || $res->design_id == 3) echo 'height:310px'; ?>"><?php echo $res->maintext; ?>
+                        <div style="height: 200px; width:100%; word-wrap:break-word; <?php if ($res->design_id == 2 || $res->design_id == 3 || $res->design_id == 4  ) echo 'height:310px'; ?>"><?php echo $res->maintext; ?>
                         </div>
                          <br>
                          <?php if ($res->design_id == 2  || ($res->design_id == 1 && $res->img2 == null)){ ?><img src="../<?php echo $res->img;?>" width="100%" style="height: 130px"><?php } 

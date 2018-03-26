@@ -2,7 +2,7 @@
 $design_id = $_GET['id'];
 
 
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
+if ($design_id != "1" && $design_id != "2" && $design_id != "3" && $design_id != "4")
 {
 echo "<script>
 alert('Invalid Design ID');
@@ -37,11 +37,7 @@ window.location.href='new_magazine.php';
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-//<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-  //]]>
-  </script>
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -127,31 +123,43 @@ window.location.href='new_magazine.php';
                             <br><br>
                             <span style="margin-left: 30px">
                             <label> Enter Text To Display</label><br>
-                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
+                            
+                            <textarea id = "area" name="area1" cols="40" rows="5" novalidate></textarea>
                            
                            </span>
                            <br>
+
+                            <?php if($design_id != 4){ ?>
+
+                                <span style="margin-left: 30px">
+                                <!-- <label> Select Image</label><br> -->
+                                <!-- <div class="fileUpload btn btn-custom btn-flat btn-sm">
+                                    <span>Upload Image</span>
+                                    <input type="file" class=" upload" name="cover_page" required="required" accept="image/x-png,image/jpeg" />
+                                </div> -->
+                                <input type="file" class="btn btn- btn-sm" name="cover_page" required="required" accept="image/x-png,image/jpeg">
+                            </span><br><br>
+                            
+
+                            <?php if($design_id == 1){ ?>
                             <span style="margin-left: 30px">
-                            <!-- <label> Select Image</label><br> -->
-                            <!-- <div class="fileUpload btn btn-custom btn-flat btn-sm">
-                                <span>Upload Image</span>
-                                <input type="file" class=" upload" name="cover_page" required="required" accept="image/x-png,image/jpeg" />
-                            </div> -->
-                            <input type="file" class="btn btn- btn-sm" name="cover_page" required="required" accept="image/x-png,image/jpeg">
-                           </span><br><br>
-                          
-                           <?php if($design_id == 1){ ?>
-                           <span style="margin-left: 30px">
-                            <label> Select Second Image</label><br>
-                            <input type="file" class="btn btn- btn-sm" name="image2" required="required" accept="image/x-png,image/jpeg">
-                           </span><br><br>
-                           <?php  } ?>
+                                <label> Select Second Image</label><br>
+                                <input type="file" class="btn btn- btn-sm" name="image2" required="required" accept="image/x-png,image/jpeg">
+                            </span><br><br>
+                            <?php  } ?>
 
-                           <span style="margin-left: 30px">
-                            <label> Select Background Image</label><br>
-                            <input type="file" class="btn btn- btn-sm" name="background_image" required="required" accept="image/x-png,image/jpeg">
-                           </span><br><br>
+                            <span style="margin-left: 30px">
+                                <label> Select Background Image</label><br>
+                                <input style="margin-left: 30px" type="file" class="btn btn- btn-sm" name="background_image" required="required" accept="image/x-png,image/jpeg">
+                            </span><br><br>
 
+                            <?php  } ?>
+
+                            <?php if($design_id == 4){ ?>
+                            <span style="margin-top: 30px">
+                            </span><br><br>
+                            <?php  } ?>
+                            
                            <input type="hidden" class="btn btn-primary btn-sm" name="design_id" value="<?php echo $design_id; ?>">
                             <input type="submit" class="btn btn-custom btn-flat btn-md " name="submit1" value="Preview">
                         <div class="clearfix"></div>
@@ -254,6 +262,29 @@ window.location.href='new_magazine.php';
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
+
+    <script>
+bkLib.onDomLoaded(function() { 
+    nicEditors.allTextAreas();
+    $("div.nicEdit-main").keyup(function () {
+
+        var limitField = new nicEditors.findEditor("area");
+        var count = 1500;
+
+        if (limitField.getContent().length > count) {
+            var string = limitField.getContent().slice(0, count);
+            limitField.setContent(string);
+            alert("Maximum Character Limit Exceed");
+        }     
+
+    });
+
+});
+
+
+</script>
+
+
 </body>
 
 </html>

@@ -6,7 +6,7 @@ if (isset($_POST['submit1'])){
 $design_id = $_POST['design_id'];
 
 
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
+if ($design_id != "1" && $design_id != "2" && $design_id != "3" && $design_id != "4")
 {
 echo "<script>
 alert('Invalid Design ID');
@@ -18,6 +18,8 @@ $target_dir = "preview_image/";
 $background_image = $target_dir .uniqid(). basename($_FILES["background_image"]["name"]);
 move_uploaded_file($_FILES["background_image"]["tmp_name"], $background_image);
 
+if($design_id != "4"){
+
 $target_file = $target_dir .uniqid(). basename($_FILES["cover_page"]["name"]);
 move_uploaded_file($_FILES["cover_page"]["tmp_name"], $target_file);
 if(isset($_FILES['image2'])){
@@ -26,6 +28,11 @@ if(isset($_FILES['image2'])){
 }
 else{
     $image2 = null;
+}
+}
+else{
+    $image2 = null;
+    $target_file = null;
 }
 
 
@@ -124,8 +131,8 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                     <div class="col-4">
-                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
-                            <div class="card-body" style="size: 100px">
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
+                            <div class="card-body" style="size: 100px;" >
                               <?php echo $magazine_name; ?>
 
                                 <div>
@@ -159,7 +166,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                      <div class="col-4">
-                            <div class="card"  style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                            <div class="card"  style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;height:500px;width:300px'>
                                 <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
@@ -185,11 +192,10 @@ $magazine_name = $_POST['magazine_name'];
 <?php } ?>
 
 <?php if ($design_id == "3"){?>
-
                  <div class="row" style="margin-left: 
                                20px">
                             <div class="col-4">
-                        <div class="card"  style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                        <div class="card"  style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
                             <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
@@ -211,7 +217,28 @@ $magazine_name = $_POST['magazine_name'];
                         </div>
                     </div> 
                 </div>
+<?php } ?>
+
+<?php if ($design_id == "4"){?>
+    <div class="row" style="margin-left: 
+                  20px">
+               <div class="col-4">
+           <div class="card"  style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
+               <div class="card-body">
+                   <?php echo $magazine_name; ?>
+                   <div>
+                       <br>
+                       <span>
+                      <?php echo $maintext; ?>
+                       </span>
+                       <br>                      
+                       </div>
+               </div>
+           </div>
+       </div> 
+   </div>
 <?php } 
+
     $url = "finish_magazine_cover.php?title=".$magazine_name."&&maintext=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image;
     if($image2 !== null){
         $url .="&&image2=".$image2;

@@ -37,8 +37,8 @@ if (isset($_GET['magazine_id'])){
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
 
     <script>
-function demoFromHTML() {
-var divElements = document.getElementById('testcase').innerHTML;
+function demoFromHTML(abc) {
+var divElements = document.getElementById(abc).innerHTML;
             //Get the HTML of whole page
             var oldPage = document.body.innerHTML;
 
@@ -96,17 +96,46 @@ var divElements = document.getElementById('testcase').innerHTML;
 <div id="editor"></div>
                 
 <?php 
+$queryCover = "Select * from magazine where id = $magazine_id";
+
+$queryCover = mysqli_query($conn,$queryCover);
+
+$result = mysqli_fetch_object($queryCover);
+
+?>
+
+
+                <div  id="pricing_block"class="pricing-block col-3 wow fadeInUp" data-wow-delay="0.4s"  >
+                    <div name="testcase" class="pricing-block-content" id="cover" style='background-image: url(<?php echo "../$result->background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:400px'>
+                        <h3><?php echo $result->name; ?></h3>
+                        
+                        <?php if ($result->design_id == 3 || $result->design_id == 1){ ?><img src="../<?php echo $result->img;?>" width="100%" style="height: 130px"><?php } ?><br>
+                        <div style="height: 200px; width: 100%; word-wrap:break-word; <?php if ($result->design_id == 2 || $result->design_id == 3 || $res->design_id == 4) echo 'height:310px'; ?>"><?php echo $result->maintext; ?>
+                        </div>
+                         <br>
+                         <?php if ($result->design_id == 2 || ($result->design_id == 1 && $result->img2 == null) ){ ?><img src="../<?php echo $result->img;?>" width="100%" style="height: 130px"><?php } 
+                         elseif($result->design_id == 1){
+                         ?><img src="../<?php echo $result->img2;?>" width="100%" style="height: 130px">
+                         <?php } ?>
+                        <!-- <a class="button">Show in large </a>   -->
+                         
+                    </div>
+                    <a class="button" href="javascript:demoFromHTML('cover')">Print</a>
+                </div>
+
+<?php 
+
 $query = "Select * from magazine_page where magazine_id = $magazine_id";
 $query = mysqli_query($conn,$query);
 while ($res = mysqli_fetch_object($query)){
 ?>
                 <!--Pricing Block-->
                 <div  id="pricing_block"class="pricing-block col-3 wow fadeInUp" data-wow-delay="0.4s"  >
-                    <div name="testcase" class="pricing-block-content" id="testcase" style='background-image: url(<?php echo "../$res->background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                    <div name="testcase" class="pricing-block-content" id="<?php echo $res->id;?>" style='background-image: url(<?php echo "../$res->background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:400px'>
                         <h3><?php echo $res->name; ?></h3>
                         
                         <?php if ($res->design_id == 3 || $res->design_id == 1){ ?><img src="../<?php echo $res->img;?>" width="100%" style="height: 130px"><?php } ?><br>
-                        <div style="height: 200px; width: 50%; word-wrap:break-word; <?php if ($res->design_id == 2 || $res->design_id == 3) echo 'height:310px'; ?>"><?php echo $res->maintext; ?>
+                        <div style="height: 200px; width: 100%; word-wrap:break-word; <?php if ($res->design_id == 2 || $res->design_id == 3 || $res->design_id == 4) echo 'height:310px'; ?>"><?php echo $res->maintext; ?>
                         </div>
                          <br>
                          <?php if ($res->design_id == 2 || ($res->design_id == 1 && $res->img2 == null) ){ ?><img src="../<?php echo $res->img;?>" width="100%" style="height: 130px"><?php } 
@@ -116,7 +145,7 @@ while ($res = mysqli_fetch_object($query)){
                         <!-- <a class="button">Show in large </a>   -->
                          
                     </div>
-                    <a class="button" href="javascript:demoFromHTML()">Print</a>
+                    <a class="button" href="javascript:demoFromHTML(<?php echo $res->id?>)">Print</a>
                 </div>
                 <!--End Pricing Block-->
 

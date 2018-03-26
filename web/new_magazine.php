@@ -162,6 +162,25 @@
                         </div>
                     </div>
                   
+                    <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 4</h3>
+                                <hr/>
+                                <div style="background-image: url(mainweb/images/gallery-images/gallery-image-2.jpg); height: 450px; width=100%;">
+                                    
+                                    <p style ="color:white" class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. 
+                                        Loren IpsumSome text for magazine Loren IpsumSome text for magazine Loren IpsumSome text for magazine 
+                                    </p>
+                                </div>
+                                <br>
+                                <a href="new_magazine2.php?id=4" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                            </div>
+                        </div>
+                    </div>
+
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -200,6 +219,7 @@
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
+    
 </body>
 
 </html>

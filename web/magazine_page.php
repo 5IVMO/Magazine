@@ -117,7 +117,7 @@ include 'session.php';
                                     </span>
                                 </div>
                                 <br>
-                                <a href="magazine_page2.php?id=1" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                                <a href="magazine_page2.php?id=1" class="btn btn-custom btn-flat pull-right"> Select Page </a>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@ include 'session.php';
                                     </span>
                                 </div>
                                  <br>
-                                <a href="magazine_page2.php?id=2" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                                <a href="magazine_page2.php?id=2" class="btn btn-custom btn-flat pull-right"> Select Page </a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,34 @@ include 'session.php';
                                         Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. Loren Ipsum
                                     </p>
                                 </div>
-                                <a href="magazine_page2.php?id=3" class="btn btn-custom btn-flat pull-right"> Select Cover </a>
+                                <a href="magazine_page2.php?id=3" class="btn btn-custom btn-flat pull-right"> Select Page </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-4">
+                        <div class="card card-box">
+                            <div class="card-body" style="size: 100px">
+                                <h3>Design 4</h3>
+                                <hr/>
+                                <div>
+                                    <p class="magazine-description">
+                                        Some text for magazine..  Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine.. 
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                        Loren IpsumSome text for magazine..  Loren IpsumSome text for magazine..
+                                    </p>
+                                </div>
+                                <a href="magazine_page2.php?id=4" class="btn btn-custom btn-flat pull-right"> Select Page </a>
                             </div>
                         </div>
                     </div>

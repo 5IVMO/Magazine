@@ -2,18 +2,24 @@
 $design_id = $_GET['id'];
 
 
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
+if ($design_id != "1" && $design_id != "2" && $design_id != "3" && $design_id != "4")
 {
 echo "<script>
 alert('Invalid Design ID');
 window.location.href='new_magazine.php';
 </script>";
 }
-
-
 ?>
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+
+
+
+
 
 <head>
     <meta charset="utf-8">
@@ -38,12 +44,20 @@ window.location.href='new_magazine.php';
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
+
+    <script type="text/javascript">
 //<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+        
   //]]>
+           
+
+
+
   </script>
+  
 </head>
+
 
 <body class="fix-header card-no-border fix-sidebar">
     <!-- ============================================================== -->
@@ -142,10 +156,12 @@ window.location.href='new_magazine.php';
                             <br><br>
                             <span style="margin-left: 30px">
                             <label> Enter Text To Display</label><br>
-                            <textarea name="area1" cols="40" rows="5" novalidate></textarea>
+                            <textarea id = "area" name="area1" cols="40" rows="5" onkeyup="limitText(10);"></textarea>
                            
                            </span>
                            <br>
+                            
+                           <?php if($design_id != 4){ ?>
                             <span style="margin-left: 30px">
                             <!-- <label> Select Image</label><br> -->
                             <!-- <div class="fileUpload btn btn-custom btn-flat btn-sm">
@@ -154,7 +170,7 @@ window.location.href='new_magazine.php';
                             </div> -->
                             <input type="file" class="btn btn- btn-sm" name="cover_page" required="required" accept="image/x-png,image/jpeg">
                            </span><br><br>
-                           
+                           <?php  } ?>
                            
                            <?php if($design_id == 1){ ?>
                            <span style="margin-left: 30px">
@@ -217,6 +233,29 @@ window.location.href='new_magazine.php';
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
+
+
+<script>
+bkLib.onDomLoaded(function() { 
+    nicEditors.allTextAreas();
+    $("div.nicEdit-main").keyup(function () {
+
+        var limitField = new nicEditors.findEditor("area");
+        var count = 1000;
+
+        if (limitField.getContent().length > count) {
+            var string = limitField.getContent().slice(0, count);
+            limitField.setContent(string);
+            alert("Maximum Character Limit Exceed");
+        }     
+
+    });
+
+});
+
+
+</script>
+
 </body>
 
 </html>

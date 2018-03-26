@@ -3,7 +3,7 @@ include 'session.php';
 include('connection.php');
 $magazine_id=(integer)$_SESSION['current_magazine_id'];
 $title = $_GET['title'];
-$maintext = $_SESSION['tmp'];
+$maintext = $_GET['maintext'];
 $image= $_GET['image'];
 $design_id = (integer)$_GET['design_id'];
 $background_image = $_GET['background'];

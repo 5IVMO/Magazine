@@ -5,7 +5,7 @@ if (isset($_POST['submit1'])){
 $design_id = $_POST['design_id'];
 
 
-if ($design_id != "1" && $design_id != "2" && $design_id != "3")
+if ($design_id != "1" && $design_id != "2" && $design_id != "3" && $design_id != "4")
 {
 echo "<script>
 alert('Invalid Design ID');
@@ -13,20 +13,28 @@ window.location.href='new_magazine.php';
 </script>";
 }
 $maintext = $_POST['area1'];
+$_SESSION['subhan'] = $maintext;
 $target_dir = "preview_image/";
-$background_image = $target_dir .uniqid(). basename($_FILES["background_image"]["name"]);
-move_uploaded_file($_FILES["background_image"]["tmp_name"], $background_image);
 
-$target_file = $target_dir .uniqid(). basename($_FILES["cover_page"]["name"]);
-move_uploaded_file($_FILES["cover_page"]["tmp_name"], $target_file);
-if(isset($_FILES['image2'])){
-    $image2 = $target_dir .uniqid(). basename($_FILES["image2"]["name"]);
-    move_uploaded_file($_FILES["image2"]["tmp_name"], $image2);
+if($design_id != "4"){
+    $background_image = $target_dir .uniqid(). basename($_FILES["background_image"]["name"]);
+    move_uploaded_file($_FILES["background_image"]["tmp_name"], $background_image);
+
+    $target_file = $target_dir .uniqid(). basename($_FILES["cover_page"]["name"]);
+    move_uploaded_file($_FILES["cover_page"]["tmp_name"], $target_file);
+    if(isset($_FILES['image2'])){
+        $image2 = $target_dir .uniqid(). basename($_FILES["image2"]["name"]);
+        move_uploaded_file($_FILES["image2"]["tmp_name"], $image2);
+    }
+    else{
+        $image2 = null;
+    }
 }
 else{
+    $background_image = null;
     $image2 = null;
+    $target_file = null;
 }
-
 $magazine_name = $_POST['magazine_name'];
 ?>
 <!DOCTYPE html>
@@ -121,7 +129,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                     <div class="col-4">
-                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
                             <div class="card-body" style="size: 100px">
                               <?php echo $magazine_name; ?>
 
@@ -156,7 +164,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                                      <div class="col-4">
-                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
                             <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
@@ -186,7 +194,7 @@ $magazine_name = $_POST['magazine_name'];
                  <div class="row" style="margin-left: 
                                20px">
                             <div class="col-4">
-                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat;'>
+                        <div class="card" style='background-image: url(<?php echo "$background_image";?>);background-size: 100% 100%;background-repeat: no-repeat; height:500px;width:300px'>
                             <div class="card-body">
                                 <?php echo $magazine_name; ?>
 
@@ -208,17 +216,43 @@ $magazine_name = $_POST['magazine_name'];
                         </div>
                     </div> 
                 </div>
+<?php } ?>
+
+<?php if ($design_id == "4"){?>
+
+    <div class="row" style="margin-left: 
+                  20px">
+               <div class="col-4">
+           <div class="card">
+               <div class="card-body">
+                   <?php echo $magazine_name; ?>
+
+                   <div>
+                       <span>
+                      <?php echo $maintext; ?>
+                       </span>
+                       <br>
+                       <br>
+                      
+                    </div>
+
+               </div>
+           </div>
+       </div> 
+   </div>
 <?php } 
-    $url1 = "submit_magazine_page.php?title=".$magazine_name."&&maintext=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image;
-    $url2 ="submit_magazine_page2.php?title=".$magazine_name."&&maintext=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image;
+   
+    $url1 = "submit_magazine_page.php?title=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image."&&maintext=".$maintext;
+    $url2 = "submit_magazine_page2.php?title=".$magazine_name."&&image=".$target_file."&&design_id=".$design_id."&&background=".$background_image."&&maintext=".$maintext;
+
     if($image2 !== null){
         $url1 .="&&image2=".$image2;
         $url2 .="&&image2=".$image2;
     }
+?>
 
-
-
-?><a href="<?php echo $url1;?>" class="btn waves-effect waves-light btn-info hidden-md-down"> Add New Page</a> <a href="<?php echo $url2;?>" class="btn waves-effect waves-light btn-info hidden-md-down"> Finish And Submit For Admin Approval </a>
+<a href="<?php echo $url1;?>" class="btn waves-effect waves-light btn-info hidden-md-down"> Add New Page</a> 
+<a href="<?php echo $url2;?>" class="btn waves-effect waves-light btn-info hidden-md-down"> Finish And Submit For Admin Approval </a>
 <?php
 
 $_SESSION['tmp'] = $maintext;
